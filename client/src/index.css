@@ -2,12 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* 🌟 Global Variables */
+:root {
+	--background: 0 0% 100%;
+	--foreground: 222.2 84% 4.9%;
+	--primary: 221.2 83.2% 53.3%;
+	--primary-foreground: 210 40% 98%;
+	--secondary: 210 40% 96.1%;
+	--secondary-foreground: 222.2 47.4% 11.2%;
+	--muted: 210 40% 96.1%;
+	--muted-foreground: 215.4 16.3% 46.9%;
+	--accent: 210 40% 96.1%;
+	--accent-foreground: 222.2 47.4% 11.2%;
+	--destructive: 0 100% 50%;
+	--destructive-foreground: 210 40% 98%;
+	--border: 214.3 31.8% 91.4%;
+	--input: 214.3 31.8% 91.4%;
+	--ring: 221.2 83.2% 53.3%;
+	--radius: 0.5rem;
 
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
-  }
+	/* 🌈 Chart Colors */
+	--chart-1: 221.2 83.2% 53.3%;
+	--chart-2: 345 82% 60%;
+	--chart-3: 45 100% 50%;
+	--chart-4: 280 73% 58%;
+	--chart-5: 180 67% 44%;
+
+	/* 📌 Sidebar Colors */
+	--sidebar-background: 215 28% 17%;
+	--sidebar-foreground: 220 15% 90%;
+	--sidebar-primary: 221.2 83.2% 53.3%;
+	--sidebar-primary-foreground: 210 40% 98%;
+	--sidebar-accent: 215 28% 24%;
+	--sidebar-accent-foreground: 210 40% 98%;
+	--sidebar-border: 215 28% 25%;
+	--sidebar-ring: 221.2 83.2% 53.3%;
+}
+
+/* 🌑 Dark Mode */
+.dark {
+	--background: 222.2 84% 4.9%;
+	--foreground: 210 40% 98%;
+	--primary: 210 40% 98%;
+	--primary-foreground: 222.2 47.4% 11.2%;
+	--secondary: 215 28% 17%;
+	--secondary-foreground: 220 15% 90%;
+	--muted: 215 28% 24%;
+	--muted-foreground: 220 15% 65%;
+	--accent: 215 28% 24%;
+	--accent-foreground: 210 40% 98%;
+	--destructive: 0 62.8% 30.6%;
+	--destructive-foreground: 210 40% 98%;
+	--border: 215 28% 25%;
+	--input: 215 28% 25%;
+	--ring: 221.2 83.2% 53.3%;
+}
+
+/* 🌍 Base Styles */
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply font-sans antialiased bg-background text-foreground;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-semibold text-foreground;
+	}
+
+	a {
+		@apply text-primary hover:underline;
+	}
+
+	button {
+		@apply bg-primary text-primary-foreground px-4 py-2 rounded-md;
+	}
+
+	input,
+	textarea {
+		@apply bg-input text-foreground border border-border p-2 rounded-md;
+	}
+}
+
+/* 📌 Sidebar Styling */
+.sidebar {
+	@apply bg-sidebar text-sidebar-foreground w-64 min-h-screen p-4;
+}
+
+/* 🌈 Chart Colors */
+.chart-1 {
+	background-color: hsl(var(--chart-1));
+}
+.chart-2 {
+	background-color: hsl(var(--chart-2));
+}
+.chart-3 {
+	background-color: hsl(var(--chart-3));
+}
+.chart-4 {
+	background-color: hsl(var(--chart-4));
+}
+.chart-5 {
+	background-color: hsl(var(--chart-5));
+}
+
+/* 📌 Animations */
+@layer utilities {
+	.accordion-down {
+		animation: accordion-down 0.2s ease-out;
+	}
+
+	.accordion-up {
+		animation: accordion-up 0.2s ease-out;
+	}
+}
+
+@keyframes accordion-down {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--radix-accordion-content-height);
+	}
+}
+
+@keyframes accordion-up {
+	from {
+		height: var(--radix-accordion-content-height);
+	}
+	to {
+		height: 0;
+	}
 }
