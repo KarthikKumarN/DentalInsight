@@ -65,9 +65,9 @@ export default function Home() {
 				/>
 
 				{/* Move Quick Tips to top for better visibility */}
-				<div className="mb-12">
+				{/* <div className="mb-12">
 					<QuickTips />
-				</div>
+				</div> */}
 
 				<div className="mt-8">
 					{(isLoading || searchMutation.isPending) && (
@@ -98,6 +98,10 @@ export default function Home() {
 					{searchResult && searchResult.response && (
 						<ResultCard result={searchResult.response as SearchResponse} />
 					)}
+				</div>
+				{/* Move Quick Tips to top for better visibility */}
+				<div className="mb-12">
+					<QuickTips />
 				</div>
 			</div>
 		</div>
